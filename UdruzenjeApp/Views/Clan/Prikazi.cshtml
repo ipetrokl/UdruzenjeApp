@@ -1,0 +1,59 @@
+﻿@using UdruzenjeApp.ViewModels
+@model List<UdruzenjeApp.ViewModels.ClanDodajVM>
+@{
+    //ViewData["Title"] = "Prikazi";
+    //var rezultat = (List<ClanViewModel>)ViewData["podaci"];
+    int b = 0;
+}
+<script src="~/js/ajaxScript.js"></script>
+
+<div id="prikaz" class=" container">
+    <h2>Prikazi</h2>
+
+    <table class="table table-hover table-bordered ">
+        <thead>
+            <tr>
+                <th>RB</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Datum Rodjenja</th>
+                <th>Email</th>
+                <th>Broj Telefona</th>
+                <th>Adresa</th>
+                <th>Akcija</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ClanDodajVM x in Model)
+            {
+                <tr>
+                    @{
+                        b++;
+                    }
+                    <td>@b</td>
+                    <td>@x.Ime</td>
+                    <td>@x.Prezime</td>
+                    <td>@x.DatumRodjenja</td>
+                    <td>@x.Email</td>
+                    <td>@x.BrojTelefona</td>
+                    <td>@x.Adresa</td>
+
+                    <td>
+                        <a href="/Clan/Delete?TrazeniID=@x.ClanId" class="btn btn-danger">  Obrisi </a>
+                        <a href="/Clan/Uredi?ClanID=@x.ClanId" class="btn btn-warning" ajax-url="/Clan/Uredi?ClanID=@x.ClanId" ajax-rezultat="nekiID" ajax-poziv="da">  Uredi </a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button id="idButton" class="btn btn-success" ajax-rezultat="nekiID" ajax-poziv="da" ajax-url="/Clan/Dodaj/">Dodaj</button>
+    <div id="nekiID">
+
+
+    </div>
+</div>
+
+
+
