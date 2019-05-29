@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Bootstrap core CSS -->
+
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
+
     <link href="/css/modern-business.css" rel="stylesheet" />
 
     <environment include="Development">
@@ -42,13 +42,15 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        @*<script src="~/js/site.min.js" asp-append-version="true"></script>
+            <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
     </environment>
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/css/modern-business.css" rel="stylesheet">
     <script src="~/js/ajaxScript.js"></script>
-
+  
     @RenderSection("Scripts", required: false)
 
 </head>
@@ -146,30 +148,33 @@
                     <li style="color:azure;">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <a class="nav-link">  Hello, @User.Identity.Name</a>
+                            <a class="nav-link" href="#">  Hello, @User.Identity.Name</a>
                         }
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    @RenderBody()
 
 
-
-    @*<div class="container body-content ">
-
-
-
-        </div>*@
-    <div>
-        @RenderBody()
-        <footer class="py-5 bg-dark navbar-expand-lg bottom" >
-            <div class="container">
-                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-            </div>
-            <!-- /.container -->
-        </footer>
+    <div class="py-3 bg-dark navbar navbar-expand-lg fixed-bottom " style="padding-bottom: 70px;">
+        @*<hr />
+        <footer>
+            <p>&copy; 2018 - Ispit_2017_02_15</p>
+        </footer>*@
+        <div class="container justify-content-center">
+            <p  class="m-0 text-center text-white">Copyright &copy; UdruzenjeApp 2019</p>
+        </div>
     </div>
+
+    @*<div class="py-5 bg-dark navbar-expand-lg navbar-fixed-bottom"
+        >
+                 <div class="container">
+                     <p class="m-0 text-center text-white">Copyright &copy; UdruzenjeApp 2019</p>
+                 </div>*@
+    <!-- /.container -->
+   
 
 </body>
 </html>

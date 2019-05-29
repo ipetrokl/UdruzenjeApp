@@ -20,3 +20,7 @@ body {
 .portfolio-item {
   margin-bottom: 30px;
 }
+footer{
+    position:fixed;
+    margin-top:190px;
+}

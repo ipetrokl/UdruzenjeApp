@@ -72,6 +72,11 @@ namespace UdruzenjeApp.Controllers
 
         }
 
+        public IActionResult RedirectTo2Factor()
+        {
+            return LocalRedirect("/Identity/Account/Manage/TwoFactorAuthentication");
+
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

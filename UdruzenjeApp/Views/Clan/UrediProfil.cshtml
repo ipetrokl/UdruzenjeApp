@@ -10,13 +10,23 @@
         align-content: center;
     }
 
-    #frm  {
+    #frm {
         margin-left: 10%;
     }
-    h1{margin-left:10%;}
-</style>
-<h1>Uredi Profil</h1>
 
+    h1 {
+        margin-left: 10%;
+    }
+</style>
+
+
+
+
+
+<h1>Uredi Profil</h1>
+<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="/css/modern-business.css" rel="stylesheet" />
 <form id="frm" class="form-horizontal position-static" enctype="multipart/form-data" method="post" asp-action="UrediProfil">
     <input asp-for="Id" hidden />
     <hr />
@@ -98,12 +108,14 @@
                 </div>
             </div>
 
-            <input type="submit" value="Spremi" class="btn btn-lg  btn-outline-success font-weight-bold ml-5" />
+            <input type="submit" value="Spremi" class="btn btn-lg  btn-outline-success font-weight-bold ml-2" />
+            @*  <button  value="Dodaj 2FactorAuth" class="btn btn-lg  btn-outline-danger font-weight-bold ml-5 " asp-action="RedirectTo2Factor" asp-controller="Home" />*@
+            <a class="btn btn-lg  btn-outline-danger font-weight-bold ml-5 " asp-action="RedirectTo2Factor" asp-controller="Home">Dodaj 2FactorAuth</a>
 
         </div>
     </div>
 
-    </div>
+
     <hr>
 
 </form>
