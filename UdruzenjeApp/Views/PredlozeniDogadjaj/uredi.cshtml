@@ -8,8 +8,8 @@
 <h4>PredlozeniDogadjaj</h4>
 <hr />
 <div class="row">
-    <div class="col-md-8">
-        <form asp-action="Snimi">
+    <div class="col-md-8" style="background-color:beige;">
+        <form asp-action="Snimi" >
             <input asp-for="PredlozeniDogadjajID" hidden />
             <div class="form-group">
                 <label asp-for="NazivPrijedloga" class="control-label"></label>
@@ -25,7 +25,7 @@
 
             <div class="form-group">
                 <label asp-for="ImeClana" class="control-label"></label>
-                <input asp-for="ImeClana" value="@Model.ImeClana" readonly />
+                <input asp-for="ImeClana" class="form-control" value="@Model.ImeClana" readonly />
             </div>
             <div class="form-group">
                 <input type="submit" value="Snimi" class="btn btn-success" />

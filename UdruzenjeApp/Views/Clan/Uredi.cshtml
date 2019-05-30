@@ -8,8 +8,8 @@
 <h2>Edit Clana</h2>
 <hr />
 
-<div class="row">
-    <div>
+<div class="col-md-8" style="background-color:beige;">
+    <div >
         <form asp-action="Snimi" asp-controller="Clan">
 
             <input type="hidden" value="@Model.ClanId" name="ClanId" class="form-control" />
@@ -60,7 +60,8 @@
                     <div class="row mb-3">
 
                       
-                            <a asp-action="DodijelaRole" asp-route-KorisnikID="@Model.ClanId" class="btn btn-outline-danger mr-2">Dodijeli rolu "Admin"</a>
+                            <a asp-action="DodijelaRole" asp-route-KorisnikID="@Model.ClanId" class="btn btn-outline-danger mr-2"
+                                         ajax-rezultat="nekiID" ajax-poziv="da">Dodijeli rolu "Admin"</a>
                      
                     </div>
                 }
@@ -69,14 +70,16 @@
                     <div class="row mb-3">
 
                        
-                            <a asp-action="UkloniRole" asp-route-KorisnikID="@Model.ClanId" class="btn btn-outline-danger mr-2">Ukloni rolu "Admin"</a>
+                            <a asp-action="UkloniRole" asp-route-KorisnikID="@Model.ClanId" class="btn btn-outline-danger mr-2"
+                             ajax-rezultat="nekiID" ajax-poziv="da">Ukloni rolu "Admin"</a>
                     
                     </div>
                 }
 
             </div>
             }
-            <div class="form-group">
+            
+            <div class="form-group" style="margin-bottom:50px;">
                 <input type="submit" value="Snimi" class="btn btn-success" />
             </div>
         </form>

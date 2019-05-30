@@ -5,10 +5,17 @@
     //var rezultat = (List<DogadjajiViewModel>)ViewData["podaci"];
     int b = 0;
 }
-<script src="~/js/ajaxScript.js"></script>
+<style>
+    body {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+</style>
 
-<div id="prikaz" class=" container">
-    <h2>Prikazi</h2>
+<script src="~/js/ajaxScript.js"></script>
+<br />
+<div id="prikaz" class=" ">
+    <h2>Prikaz Dogadjaja</h2>
 
     <table class="table table-hover table-bordered ">
         <thead>
@@ -46,7 +53,7 @@
             }
         </tbody>
     </table>
-    <button id="idButton" class="btn btn-success" ajax-rezultat="nekiID" ajax-poziv="da" ajax-url="/Dogadjaj/Dodaj/">Dodaj</button>
+    <button id="idButton" class="btn btn-primary btn-lg" ajax-rezultat="nekiID" ajax-poziv="da" ajax-url="/Dogadjaj/Dodaj/">Dodaj</button>
     <div id="nekiID">
 
 

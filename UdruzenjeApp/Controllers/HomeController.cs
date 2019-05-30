@@ -77,6 +77,11 @@ namespace UdruzenjeApp.Controllers
             return LocalRedirect("/Identity/Account/Manage/TwoFactorAuthentication");
 
         }
+        public IActionResult RedirectToChange()
+        {
+            return LocalRedirect("/Identity/Account/Manage/ChangePassword");
+
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

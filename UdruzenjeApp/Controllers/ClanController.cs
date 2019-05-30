@@ -30,7 +30,8 @@ namespace UdruzenjeApp.Controllers
 
         public IActionResult Prikazi()
         {
-           
+            var i = _userManager.GetUserId(principal: HttpContext.User);
+            var b = int.Parse(i);
             List<ClanDodajVM> model = db.Users
                 .Select(d => new ClanDodajVM
                 {
@@ -43,9 +44,10 @@ namespace UdruzenjeApp.Controllers
                     ClanId = d.Id
                 }).ToList();
             ViewData["podaci"] = model;
-
+            ViewData["k"] = b;
             return View(model);
         }
+        [Authorize(Roles ="Admin")]
         public IActionResult Delete(int TrazeniID)
         {
             
@@ -57,7 +59,7 @@ namespace UdruzenjeApp.Controllers
             return RedirectToAction(nameof(Prikazi));
         }
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Dodaj()
         {
            
@@ -66,7 +68,7 @@ namespace UdruzenjeApp.Controllers
             return PartialView("uredi", model);
         }
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Uredi(int CLANID)
         {
         

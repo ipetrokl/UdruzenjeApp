@@ -55,6 +55,7 @@
 
 </head>
 <body>
+
     @*<nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -83,47 +84,48 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    @if (User.IsInRole("Admin"))
-                    {
+                    @*@if (User.IsInRole("Admin"))
+                    {*@
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Prikazi" asp-controller="Clan">Clanovi</a>
                         </li>
-                    }
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="#">ToBeDone</a>
                     </li>
-                    @if (User.IsInRole("Admin"))
-                    {
+                    @*@if (User.IsInRole("Admin"))
+                    {*@
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Prikazi" asp-controller="Dogadjaj">Dogadjaji</a>
                         </li>
-                    }
+                    
                     <li class="nav-item">
                         <a class="nav-link" asp-action="Index" asp-controller="PredlozeniDogadjaj">Predlozi Dogadjaj</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Portfolio
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-                            <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-                            <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Blog
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-                            <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-                            <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-                            <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
+
+                    @*<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Portfolio
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                    <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+                    <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
+                </div>
+            </li>*@
+                    @*<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Blog
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                    <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
+                    <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
+                    <a class="dropdown-item" href="blog-post.html">Blog Post</a>
+                </div>
+            </li>*@
+                    @*<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Profil
                         </a>
@@ -144,14 +146,41 @@
 
 
                         </div>
-                    </li>
-                    <li style="color:azure;">
-                        @if (User.Identity.IsAuthenticated)
-                        {
+                    </li>*@
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+
+                        <li>
+                            <a class="nav-link" asp-controller="Clan" asp-action="UrediProfil">Uredi Profil</a>
+                        </li>
+
+
+                        <li style="color:azure;">
                             <a class="nav-link" href="#">  Hello, @User.Identity.Name</a>
-                        }
-                    </li>
+                        </li>
+
+                    }
                 </ul>
+                @if (User.Identity.IsAuthenticated)
+                { 
+                    <li class="float-right navbar">
+                        <a class="btn-outline-info btn" asp-controller="Home" asp-action="RedirectToLogout">LogOut</a>
+
+                    </li>
+                }
+                else{ 
+                    <li class="navbar">
+                        <a class="btn-outline-info btn" asp-controller="Home" asp-action="RedirectToLogin">Login</a>
+
+                    </li>
+                    <li>
+                        <a class="btn-outline-info btn" asp-controller="Home" asp-action="RedirectToRegister">Registracija</a>
+
+                    </li>
+                
+                }
             </div>
         </div>
     </nav>
@@ -159,10 +188,6 @@
 
 
     <div class="py-3 bg-dark navbar navbar-expand-lg fixed-bottom " style="padding-bottom: 70px;">
-        @*<hr />
-        <footer>
-            <p>&copy; 2018 - Ispit_2017_02_15</p>
-        </footer>*@
         <div class="container justify-content-center">
             <p  class="m-0 text-center text-white">Copyright &copy; UdruzenjeApp 2019</p>
         </div>

@@ -7,12 +7,19 @@
 @*<div class="alert-primary" role="alert" id="porukaBox">
   This is a primary alert—check it out!
 </div>*@
-<h2>Edit Dogadjaja</h2>
+<style>
+    body {
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+</style>
+<br />
+<h2 style="margin-left:25px">Edit Dogadjaja</h2>
 <hr />
 
-<div class="row">
+<div class="container " style="margin-left:25px; background-color:beige;">
     <div >
-        <form asp-action="Snimi" asp-controller="Dogadjaj">
+        <form asp-action="Snimi" asp-controller="Dogadjaj" class="form-group">
 
             <input type="hidden" value="@Model.DogadjadajID" name="DogadjadajID" class="form-control" />
             <input asp-for="UpraviteljID" hidden />
@@ -30,17 +37,18 @@
             </div>
             <div class="form-group">
                 <label asp-for="opis" class="control-label"></label>
-                <input asp-for="opis" class="form-control" />
+                @*<input asp-for="opis" class="form-control" />*@
+                <textarea asp-for="opis" class="form-control"></textarea>
                 <span asp-validation-for="opis" class="text-danger"></span>
             </div>
 
 
             <div class="form-group">
                 <label asp-for="ImeClana" class="control-label"></label>
-                <input asp-for="ImeClana" value="@Model.ImeClana" readonly />
+                <input asp-for="ImeClana"class="form-control" value="@Model.ImeClana" readonly />
             </div>
             <div class="form-group">
-                <label asp-for="GradID" class="control-label"></label>
+                <label asp-for="GradID" class="control-label">Grad</label>
                 <select asp-for="GradID" asp-items="Model.gradStavke" class="form-control"></select>
 
             </div>
