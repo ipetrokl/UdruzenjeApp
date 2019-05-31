@@ -7,6 +7,8 @@ namespace UdruzenjeApp.ViewModels
     {
         public List<ApplicationUser> clanStavke { get; set; }
         public List<nekaKlasa> podaci { get; set; }
+       
+
         public class nekaKlasa
         {
             public int PredlozeniDogadjajID { get; set; }

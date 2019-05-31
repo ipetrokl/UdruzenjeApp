@@ -19,6 +19,11 @@ namespace UdruzenjeApp.Controllers
         {
             _userManager = userManager;
         }
+
+        public PredlozeniDogadjajController()
+        {
+        }
+
         public IActionResult Index()
         {
             PrijedlogDogadjajaPrikaziVM model = new PrijedlogDogadjajaPrikaziVM();

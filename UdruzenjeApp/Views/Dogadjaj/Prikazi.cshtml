@@ -1,5 +1,6 @@
 ﻿@using UdruzenjeApp.ViewModels
-@model List<UdruzenjeApp.ViewModels.DogadjajiViewModel>
+
+@model DogadjajiViewModel
 @{
     //ViewData["Title"] = "Prikazi";
     //var rezultat = (List<DogadjajiViewModel>)ViewData["podaci"];
@@ -14,9 +15,20 @@
 
 <script src="~/js/ajaxScript.js"></script>
 <br />
+
 <div id="prikaz" class=" ">
     <h2>Prikaz Dogadjaja</h2>
-
+    <br />
+    <form class="form-inline" asp-action="Prikazi" asp-controller="Dogadjaj" asp-route-NazivDogadjaja="@Model.NazivDogadjaja" asp-route-GradId="@Model.GradId">
+            <p>
+                Naziv: <input asp-for="NazivDogadjaja" class="form-control mr-3" type="text" >
+                <input class="btn btn-dark" type="submit" value="Filter" />
+            </p>
+            <p style="margin-left:3%;">
+                Grad: <select asp-for="GradId" asp-items="@Model.gradovi" class="form-control mr-3"></select>
+                <input class="btn btn-dark" type="submit" value="Filter" />
+            </p>
+        </form>
     <table class="table table-hover table-bordered ">
         <thead>
             <tr>
@@ -24,12 +36,14 @@
                 <th>Naziv</th>
                 <th>Vrijeme</th>
                 <th>Opis</th>
+                <th>Mjesto</th>
                 <th>Akcija</th>
 
             </tr>
         </thead>
         <tbody>
-            @foreach (DogadjajiViewModel x in Model)
+            @foreach (var k in Model.rows) { }
+            @foreach (var x in Model.rows)
             {
                 <tr>
                     @{
@@ -39,7 +53,7 @@
                     <td>@x.Naziv</td>
                     <td>@x.VrijemeOdrzavanja</td>
                     <td>@x.opis</td>
-                   
+                    <td>@x.grad</td>
 
 
                     <td>

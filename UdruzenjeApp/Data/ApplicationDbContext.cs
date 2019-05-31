@@ -35,7 +35,7 @@ namespace UdruzenjeApp.Data
 
         }
 
-        public ApplicationDbContext()
+        public ApplicationDbContext():base()
         {
         }
 

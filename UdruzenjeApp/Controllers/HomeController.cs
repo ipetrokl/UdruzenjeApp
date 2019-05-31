@@ -16,15 +16,19 @@ namespace UdruzenjeApp.Controllers
 
         public IActionResult Index()
         {
-            List<DogadjajiViewModel> model = db.dogadjaj
-                .Select(d => new DogadjajiViewModel
+            DogadjajiViewModel model = new DogadjajiViewModel();
+                
+                model.rows = db.dogadjaj
+                .Select(d => new DogadjajiViewModel.Row
                 {
                     Naziv = d.Naziv,
                     opis = d.opis,
                     OgranicenoMjesta = d.OgranicenoMjesta,
                     brojMjesta = d.brojMjesta,
                     VrijemeOdrzavanja = d.VrijemeOdrzavanja,
-                    DogadjajID = d.ID
+                    DogadjajID = d.ID,
+                    grad=db.grad.FirstOrDefault(x=>x.ID==d.GradID).Naziv
+                    
                 }).ToList();
             return View(model);
         }
@@ -32,9 +36,14 @@ namespace UdruzenjeApp.Controllers
         {
             DogadjajiViewModel model = new DogadjajiViewModel();
             Dogadjaj d = db.dogadjaj.Where(x => x.ID == dogadjajId).FirstOrDefault();
-            model.Naziv = d.Naziv;
-            model.opis = d.opis;
-            model.DogadjajID = d.ID;
+            model.rows = db.dogadjaj.Where(x => x.ID == d.ID)
+                .Select(k => new DogadjajiViewModel.Row
+                {
+                    Naziv = d.Naziv,
+                    opis = d.opis,
+                    grad = db.grad.FirstOrDefault(x => x.ID == d.GradID).Naziv
+                }
+                ).ToList();
                 
             return View(model);
         }

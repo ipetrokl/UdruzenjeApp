@@ -18,32 +18,37 @@
 <body>
     <!-- Navigation -->
     <!-- Page Content -->
-    <div class="container min-vh-100">
-        <div class="jumbotron min-vh-100">
-            <h2>@Model.Naziv</h2>
 
-            <br />
-            <form>
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" value="@Model.VrijemeOdrzavanja">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" value="Sarajevo">
-                    </div>
-                </div>
-            </form>
-            <br />
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa a explicabo minus id,
-                non cumque repellat veritatis quaerat beatae laboriosam, odit quos dolorum placeat tempore numquam quidem voluptatem iusto perspiciatis?
+    @foreach (var x in Model.rows)
+    {
+        <div class="container min-vh-100">
+            <div class="jumbotron min-vh-100">
+                <h2>@x.Naziv</h2>
 
-                @Model.opis
-            </p>
+                <br />
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" value="@x.VrijemeOdrzavanja">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" value="Sarajevo">
+                        </div>
+                    </div>
+                </form>
+                <br />
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa a explicabo minus id,
+                    non cumque repellat veritatis quaerat beatae laboriosam, odit quos dolorum placeat tempore numquam quidem voluptatem iusto perspiciatis?
+
+                    @x.opis
+                </p>
+            </div>
+
+
         </div>
+    }
 
-
-    </div>
     <!-- /.container -->
     <!-- Footer -->
     <!-- Bootstrap core JavaScript -->

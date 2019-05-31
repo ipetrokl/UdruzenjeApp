@@ -21,18 +21,34 @@ namespace UdruzenjeApp.Controllers
             _userManager = userManager;       
         }
 
-        public IActionResult Prikazi()
+        public IActionResult Prikazi(string NazivDogadjaja, int? GradId)
         {
-            List<DogadjajiViewModel> model = db.dogadjaj
-                .Select(d => new DogadjajiViewModel
+            DogadjajiViewModel model =new  DogadjajiViewModel();
+                
+                model.rows = db.dogadjaj
+                .Where(y=>(y.GradID==GradId || GradId==null)&&(y.Naziv.Contains(NazivDogadjaja)||NazivDogadjaja==null))
+                .Select(d => new DogadjajiViewModel.Row
                 {
-                    Naziv=d.Naziv,
-                    opis=d.opis,
-                    OgranicenoMjesta=d.OgranicenoMjesta,
-                    brojMjesta=d.brojMjesta,
-                    VrijemeOdrzavanja=d.VrijemeOdrzavanja,
-                    DogadjajID=d.ID
+                    Naziv = d.Naziv,
+                    opis = d.opis,
+                    OgranicenoMjesta = d.OgranicenoMjesta,
+                    brojMjesta = d.brojMjesta,
+                    VrijemeOdrzavanja = d.VrijemeOdrzavanja,
+                    DogadjajID = d.ID,
+                    grad = db.grad.FirstOrDefault(x => x.ID == d.GradID).Naziv,
+                   
+
                 }).ToList();
+            model.gradovi =new List<SelectListItem>()
+            {
+                new SelectListItem()
+                {
+                    Value=string.Empty,
+                    Text="(Odaberite Grad)"
+                }
+            };
+            model.gradovi.AddRange(db.grad.Select(g => new SelectListItem(g.Naziv, g.ID.ToString()))); 
+            
             ViewData["podaci"] = model;
 
             return View(model);
@@ -111,5 +127,7 @@ namespace UdruzenjeApp.Controllers
             db.Dispose();
             return RedirectToAction(nameof(Prikazi));
         }
+        public int getBrojDogadjaja() { return db.dogadjaj.ToList().Count(); }
     }
+    
 }

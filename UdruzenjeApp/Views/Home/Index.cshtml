@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 @using UdruzenjeApp.ViewModels
-@model List<UdruzenjeApp.ViewModels.DogadjajiViewModel>
+@model UdruzenjeApp.ViewModels.DogadjajiViewModel
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -68,7 +68,7 @@
 
         <div class="row">
            @* ucitavanje dogadjaja iz baze u card na home paga*@
-            @foreach (var x in Model)
+            @foreach (var x in Model.rows)
             {
                 <div class="col-lg-4 mb-4">
                     <div class="card h-100">
