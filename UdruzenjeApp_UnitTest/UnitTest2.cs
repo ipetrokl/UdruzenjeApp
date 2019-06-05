@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -26,7 +26,6 @@ namespace UdruzenjeApp_UnitTest
             PredlozeniDogadjajController pc = new PredlozeniDogadjajController(_userManager);
             pc.Index();
         }
-
 
         public class Row
         {
