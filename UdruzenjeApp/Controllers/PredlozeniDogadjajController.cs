@@ -20,9 +20,6 @@ namespace UdruzenjeApp.Controllers
             _userManager = userManager;
         }
 
-        public PredlozeniDogadjajController()
-        {
-        }
 
         public IActionResult Index()
         {

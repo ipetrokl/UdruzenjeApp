@@ -4,7 +4,12 @@
     ViewData["Title"] = "Reset authenticator key";
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
-
+<style>
+    body {
+        padding-left: 1.5%;
+        padding-top: 4.5%;
+    }
+</style>
 @Html.Partial("_StatusMessage", Model.StatusMessage)
 <h4>@ViewData["Title"]</h4>
 <div class="alert alert-warning" role="alert">

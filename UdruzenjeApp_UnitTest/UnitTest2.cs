@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,13 @@ namespace UdruzenjeApp_UnitTest
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
+        public readonly UserManager<ApplicationUser> _userManager;
 
         [TestMethod]
         [Timeout(3000)]
         public void Index_TestBrzine_Izvrsavanja()
         {
-            PredlozeniDogadjajController pc = new PredlozeniDogadjajController();
+            PredlozeniDogadjajController pc = new PredlozeniDogadjajController(_userManager);
             pc.Index();
         }
 
@@ -37,7 +39,7 @@ namespace UdruzenjeApp_UnitTest
         public void Prikazi_PredlozeniDogadjaj_Model()
         {
 
-            PredlozeniDogadjajController pc = new PredlozeniDogadjajController();
+            PredlozeniDogadjajController pc = new PredlozeniDogadjajController(_userManager);
             List<PredlozeniDogadjaj> predlozeniDogadjai = db.predlozeniDogadjaj.ToList();
             List<Row> ocekivani = new List<Row>();
 
