@@ -21,10 +21,10 @@ namespace UdruzenjeApp.Data
         public DbSet<PredlozeniDogadjaj> predlozeniDogadjaj { get; set; }
 
 
-
+        //User ID = UdruzenjeApp1; Password=Pa$$word1;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        { optionsBuilder.UseSqlServer("Server=.;Database=UdruzenjeApp;Trusted_Connection=True;MultipleActiveResultSets=true;"); }
+        { optionsBuilder.UseSqlServer("Server=app.fit.ba,1433;Database=UdruzenjeApp;Trusted_Connection=false;User ID=UdruzenjeApp;Password=Pa$$word1;MultipleActiveResultSets=true"); }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
