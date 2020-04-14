@@ -28,6 +28,8 @@ namespace UdruzenjeApp.Controllers
 
         }
 
+        //komentar za commit
+
         public IActionResult Prikazi()
         {
             var i = _userManager.GetUserId(principal: HttpContext.User);
