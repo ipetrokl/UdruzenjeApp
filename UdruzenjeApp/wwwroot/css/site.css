@@ -35,3 +35,23 @@ body {
         display: none;
     }
 }
+.my-4 {
+    text-align: center;
+    color: gray;
+}
+.linija {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 45%;
+    margin-right: 45%;
+    border-color: red;
+    border-width: 2px;
+}
+.facebookID {
+    margin-left: 50%;
+}
+.framefbID {
+    margin-left: 40%;
+}
+
