@@ -24,7 +24,6 @@ namespace UdruzenjeApp.Controllers
         public IActionResult Prikazi(string NazivDogadjaja, int? GradId)
         {
             DogadjajiViewModel model =new  DogadjajiViewModel();
-                
                 model.rows = db.dogadjaj
                 .Where(y=>(y.GradID==GradId || GradId==null)&&(y.Naziv.Contains(NazivDogadjaja)||NazivDogadjaja==null))
                 .Select(d => new DogadjajiViewModel.Row

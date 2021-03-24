@@ -36,6 +36,8 @@ namespace UdruzenjeApp
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddCors();
+            
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -65,6 +67,11 @@ namespace UdruzenjeApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors(corsPolicyBuilder =>
+                corsPolicyBuilder.WithOrigins("*")
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -79,9 +86,8 @@ namespace UdruzenjeApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
-
+          
             app.UseAuthentication();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
